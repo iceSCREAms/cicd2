@@ -1,0 +1,93 @@
+.menu__icon {
+	position: relative;
+	top: -1px;
+	height: 30px;
+	width: 30px;
+	cursor: pointer;
+	z-index: 100;
+	transition: all 0.3s;
+	z-index: 1001;
+}
+.menu__icon span{
+	position: absolute;
+	height: 3px;
+	top: 50%;
+	width: 30px;
+	background: linear-gradient(316.53deg, #26FFF2 13.2%, #326CFF 71.54%);
+	border-radius: 5px;
+}
+.menu__icon::before,
+.menu__icon::after{
+	content: "";
+	position: absolute;
+	height: 3px;
+	width: 30px;
+	background: linear-gradient(316.53deg, #26FFF2 13.2%, #326CFF 71.54%);
+	border-radius: 5px;
+	left: 0;
+	transition: all .3s;
+}
+.menu__icon::before{
+	top: 5px;
+}
+.menu__icon::after{
+	bottom: 2px;
+}
+.menu__icon.active span{
+	display: none;
+}
+.menu__icon.active::after{
+	top: 50%;
+	transform: rotate(45deg);
+}
+.menu__icon.active::before{
+	top: 50%;
+	transform: rotate(-45deg);
+}
+
+
+.nav {
+	padding: 30px 0;
+	background-color: #000;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: all .3s;
+	pointer-events: none;
+	z-index: 1000;
+}
+.nav.active{
+	opacity: 1;
+	pointer-events: all;
+}
+.nav__list {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.nav__item {
+}
+.nav__item:not(:last-child){
+	margin-bottom: 25px;
+}
+.nav__link {
+	font-size: 24px;
+	font-weight: 700;
+	color: #fff;
+}
+@media(min-width:1101px){
+	.menu__icon{
+		display: none;
+	}
+	.nav.active{
+		opacity: 0;
+	}
+}
